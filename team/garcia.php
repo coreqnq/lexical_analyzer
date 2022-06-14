@@ -1,14 +1,13 @@
 <?php
 $input = '$';
-echo 'variable =>' .$input;
+echo 'variable =>' . $input;
 
-$dicctionarySymbols = ['?','$'];
+$dicctionarySymbols = ['?', '$'];
 sybomls($input);
-function sybomls($inputBase)
-{
-    if ( in_array($inputBase,$dicctionarySymbols ) )
-    {
+function sybomls(
+    $inputBase
+) {
+    if (in_array($inputBase, $dicctionarySymbols)) {
         echo ' - - simbolo';
     }
-
 }
