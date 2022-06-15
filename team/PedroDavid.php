@@ -1,15 +1,17 @@
 <?php
 /* IDENTIFICADOR: VARIABLE */
-$sql = " ";
-$evaluar = "_Num_=(2+4)/3 if (_Num_>10) then 'Ingresaste'";
-$buscado = str_split($evaluar);
-$msg = " ";
+//length_Num_=(2+4)/3 if (_Num_>10) then 'Ingresaste'";
+
+
 /* $buscado = explode(" ", $evaluar); */
-echo Identificador($buscado, $sql, $msg);
+//echo Identificador($buscado, $sql, $msg);
 
 /* Lógica */
-function Identificador($buscado, $sql, $msg)
+function Identificador($evaluar)
 {
+    $buscado = str_split($evaluar);
+    $sql = " ";
+    $msg = " ";
     $analisis =  ['_', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
     /* Si la variable existe */
