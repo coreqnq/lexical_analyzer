@@ -104,12 +104,13 @@
             require('team/garcia.php');
             require('team/aquino.php');
             require('team/PedroDavid.php');
-            require('team/gutierrz.php');
+            require('team/gutierrez.php');
 
             if (isset($_POST['inputtext'])) {
                 $simbols = sybomls($_POST['inputtext']);
                 $class = classAquino($_POST['inputtext']);
                 $identicador = Identificador($_POST['inputtext']);
+                $operators = searchOperators($_POST['inputtext']);
 
 
                 if (count($simbols)) {
@@ -130,6 +131,16 @@
                          <td>' . $item[2] . '</td>';
                     }
                     echo '</tr>';
+                }
+
+                if (count($operators)) {
+                    foreach ($operators as $item) {
+                        echo '<tr>';
+                        echo '<th>' . $item[0] . '</th>';
+                        echo '<td>' . $item[1] . '</td>';
+                        echo '<td>' . $item[2] . '</td>';
+                        echo '</tr>';
+                    }
                 }
 
                 if (strlen($identicador)>0) {

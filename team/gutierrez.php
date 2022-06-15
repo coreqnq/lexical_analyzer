@@ -2,8 +2,6 @@
 
 $input = '$result = a + b * c >= d';
 
-//$result = searchOperators($input);
-
 function searchOperators($input): array
 {
     $comparisonOperators = array('>', '>=', '<', '<=', '==', '<>', '!=');
@@ -22,5 +20,11 @@ function searchOperators($input): array
         }
     }
 
-    return $tree;
+    $result = array();
+
+    foreach ($tree as $key => $value) {
+        $result[] = array("'" . $value . "'", 'Operador', $key);
+    }
+
+    return $result;
 }
