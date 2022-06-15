@@ -5,44 +5,37 @@
 
 /* $buscado = explode(" ", $evaluar); */
 //echo Identificador($buscado, $sql, $msg);
-
+/* $evaluar = " _nag = ( 2 + 4 ) / 3 if ( _Num > 10 ) then ' Ingresaste '";
+echo var_dump(Identificador($evaluar)); */
 /* Lógica */
 function Identificador($evaluar)
 {
-    $buscado = str_split($evaluar);
-    $sql = " ";
-    $msg = " ";
-    $analisis =  ['_', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    // $evaluar = " _nag = ( 2 + 4 ) / 3 if ( _Num > 10 ) then ' Ingresaste '";
+    /* letra por letra */
+    /*  $buscado = str_split($evaluar); */
 
-    /* Si la variable existe */
-    if (isset($buscado[1])) {
-        /* la variable inicia con un '_' */
-        if ($buscado[0] == "_") {
-            /* Recorre todos los caracteres de $evaluar */
-            for ($i = 0; $i < count($buscado); $i++) {
-                /* si algun caracter ingresado es diferente al array !analisis */
+    $data =  array();
+    $mayusculas =  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    $minusculas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    /* $ignorar =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]; */
+    $operators = array_merge($minusculas, $mayusculas);
 
-                for ($x = 0; $x < count($analisis); $x++) {
-                    if ($buscado[$i] == $analisis[$x]) {
+    /* analisame todo el array que debe coincidir por letra */
 
-                        /*   TODAS LAS VARIABLES
-                         if ($buscado[$i] == 0 || $buscado[$i] == 1 || $buscado[$i] == 2 || $buscado[$i] == 3 || $buscado[$i] == 4 || $buscado[$i] == 5 || $buscado[$i] == 6 || $buscado[$i] == 7 || $buscado[$i] == 8 || $buscado[$i] == 9) {
-
-                    break;
-                } */
-                        /* Concatenating the value of [] to the end of the string . */
-                        $sql .= $buscado[$i];
-                    }
-                }
-                /*   la 1ra DE LAS VARIABLES    */
-                if ($buscado[$i] == 0 || $buscado[$i] == 1 || $buscado[$i] == 2 || $buscado[$i] == 3 || $buscado[$i] == 4 || $buscado[$i] == 5 || $buscado[$i] == 6 || $buscado[$i] == 7 || $buscado[$i] == 8 || $buscado[$i] == 9) {
-
-                    break;
-                }
+    foreach ($operators as $operator) {
+        /* me da la position del que coincide*/
+        $position  =  strpos($evaluar, $operator);
+        /* si se encuentra una valor identico es true */
+        if ($position !== false) {
+            /* este */
+            /* var_dump($position); */
+            /*  var_dump($operator); */
+            /*   $alm[$position] =  array($operator, 'identificador', $operator); */
+            if (!is_null($operator)) {
+                $data[] = array($operator, 'identificador', $position);
             }
+            $operator = null;
         }
-        $msg .= " Identificador ";
     }
-    return $sql . " Es " . $msg;
+    return $data;
 }
-/* var_dump($buscado[0]); */
