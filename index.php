@@ -94,8 +94,8 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Caracter</th>
-                        <th scope="col">Descrip</th>
+                        <th scope="col">Token</th>
+                        <th scope="col">Atributo</th>
                         <th scope="col">Posicion</th>
                     </tr>
                 </thead>
@@ -106,6 +106,7 @@
                     require('team/aquino.php');
                     require('team/PedroDavid.php');
                     require('team/gutierrez.php');
+                    require('team/pabel.php');
 
                     if (isset($_POST['inputtext'])) {
 
@@ -117,26 +118,27 @@
                         $class = classAquino($_POST['inputtext']);
                         $identicador = Identificador($_POST['inputtext']);
                         $operators = searchOperators($_POST['inputtext']);
+                        $typeCharacter = searchOperators($_POST['inputtext']);
 
 
                         if (count($simbols)) {
-                            echo '<tr>';
                             foreach ($simbols as $item) {
-                                echo '<th>' . $item[0] . '</th>
-                         <td>' . $item[1] . '</td>
-                         <td>' . $item[2] . '</td>';
+                                echo '<tr>';
+                                echo '<td>' . $item[0] . '</td>
+                                    <td>' . $item[1] . '</td>
+                                    <td>' . $item[2] . '</td>';
+                                echo '</tr>';
                             }
-                            echo '</tr>';
                         }
 
                         if (count($class)) {
-                            echo '<tr>';
                             foreach ($class as $item) {
+                                echo '<tr>';
                                 echo '<th>' . $item[0] . '</th>
-                         <td>' . $item[1] . '</td>
-                         <td>' . $item[2] . '</td>';
+                                      <td>' . $item[1] . '</td>
+                                      <td>' . $item[2] . '</td>';
+                                echo '</tr>';
                             }
-                            echo '</tr>';
                         }
 
                         if (count($operators)) {
@@ -163,6 +165,13 @@
                             }
 
                         }
+
+
+
+
+
+
+
                     }
 
                     ?>
