@@ -108,6 +108,11 @@
                     require('team/gutierrez.php');
 
                     if (isset($_POST['inputtext'])) {
+
+                     echo  '<div class="container-fluid p-5 bg-primary text-white text-center">
+                            <h1> '.$_POST['inputtext'].'</h1>
+                            </div>';
+
                         $simbols = sybomls($_POST['inputtext']);
                         $class = classAquino($_POST['inputtext']);
                         $identicador = Identificador($_POST['inputtext']);
@@ -145,7 +150,6 @@
                         }
 
                         /* if (strlen($identicador)>0) { */
-
 
                         if (count($identicador)) {
 
