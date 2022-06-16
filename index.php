@@ -137,7 +137,7 @@
                         if (count($operators)) {
                             foreach ($operators as $item) {
                                 echo '<tr>';
-                                echo '<th>' . $item[0] . '</th>';
+                                echo '<td>' . $item[0] . '</td>';
                                 echo '<td>' . $item[1] . '</td>';
                                 echo '<td>' . $item[2] . '</td>';
                                 echo '</tr>';
@@ -145,16 +145,19 @@
                         }
 
                         /* if (strlen($identicador)>0) { */
+
+
                         if (count($identicador)) {
-                            echo '<tr><br>';
+
                             /*  echo ' <td colspan="3">' . $identicador . '</td>'; */
                             foreach ($identicador as $item) {
-
-                                echo '<th>' . $item[0] . '</th>
-                                                     <td>' . $item[1] . '</td>
-                                                     <td>' . $item[2] . '</td><br>';
+                                echo '<tr>';
+                                echo '<td>' . $item[0] . '</td>
+                                     <td>' . $item[1] . '</td>
+                                     <td>' . $item[2] . '</td>';
+                                echo '</tr>';
                             }
-                            echo '</tr>';
+
                         }
                     }
 
