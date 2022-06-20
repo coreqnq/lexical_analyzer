@@ -1,4 +1,11 @@
 <?php
+/* $evaluar = "_Num = ( 2 + 4 ) / 3 if ( _Num > 10 ) then ' Ingresaste ' "; */
+/* $evaluar = " _nag = ( 2 + 4 ) / 3 if ( _Numero > 10 ) then ' Ingresaste '"; */
+/* letra por letra */
+/* $buscado2 = explode(" ", $evaluar); */
+/*
+$buscado = explode(" ", $evaluar); */
+
 /* var_dump(Identificador($evaluar)); */
 
 function Identificador($evaluar)
@@ -14,36 +21,26 @@ function Identificador($evaluar)
     $alm =  array();
     $alm[] = preg_replace("/[[:space:]]/", "", trim($evaluar));
 
-    $data =  array();
     $datosAlmacenados =  array();
 
     for ($i = 0; $i < count($operators); $i++) {
-        /*  */
+
         if ($bus[$i] == '_') {
-            /* array_push($datosAlmacenados, "<br/>" . $bus[$i]); */
-            $datosAlmacenados[] = array("<br/>" . $bus[$i], 'identificador', $i);
+            array_push($datosAlmacenados, "<br/>" . $bus[$i]);
             if ($bus[$i + 1] !== ' ') {
-                /* array_push($datosAlmacenados, $bus[$i + 1]); */
-                $datosAlmacenados[] = array($bus[$i + 1], 'identificador', $i);
+                array_push($datosAlmacenados, $bus[$i + 1]);
                 if ($bus[$i + 2] !== ' ') {
-                    /* array_push($datosAlmacenados, $bus[$i + 2]); */
-                    $datosAlmacenados[] = array($bus[$i + 2], 'identificador', $i);
+                    array_push($datosAlmacenados, $bus[$i + 2]);
                     if ($bus[$i + 3] !== ' ') {
-                        /* array_push($datosAlmacenados, $bus[$i + 3]); */
-                        $datosAlmacenados[] = array($bus[$i + 3], 'identificador', $i);
+                        array_push($datosAlmacenados, $bus[$i + 3]);
                         if ($bus[$i + 4] !== ' ') {
-                            /* array_push($datosAlmacenados, $bus[$i + 4]); */
-                            $datosAlmacenados[] = array($bus[$i + 4], 'identificador', $i);
+                            array_push($datosAlmacenados, $bus[$i + 4]);
                             if ($bus[$i + 5] !== ' ') {
-                                /*   array_push($datosAlmacenados, $bus[$i + 5]); */
-                                $datosAlmacenados[] = array($bus[$i + 5], 'identificador', $i);
+                                array_push($datosAlmacenados, $bus[$i + 5]);
                                 if ($bus[$i + 6] !== ' ') {
-                                    /*   array_push($datosAlmacenados, $bus[$i + 6]); */
-                                    /*  $datosAlmacenados[] = array($bus[$i + 6], 'identificador', $i); */
-                                    $datosAlmacenados[] = array($bus[$i + 6], 'identificador', $i);
+                                    array_push($datosAlmacenados, $bus[$i + 6]);
                                     if ($bus[$i + 7] !== ' ') {
-                                        /*    array_push($datosAlmacenados, $bus[$i + 7]); */
-                                        $datosAlmacenados[] = array($bus[$i + 7], 'identificador', $i);
+                                        array_push($datosAlmacenados, $bus[$i + 7]);
                                     }
                                 }
                             }
@@ -54,5 +51,14 @@ function Identificador($evaluar)
         }
         /*  */
     }
-    return $datosAlmacenados;
+    $arr = "";
+    $data =  array();
+
+    foreach ($datosAlmacenados as $key => $g) {
+        $arr .= $g;
+    }
+    $data[] = array($arr, "Identificador ", $key);
+
+
+    return $data;
 }
