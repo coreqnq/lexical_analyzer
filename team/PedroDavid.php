@@ -1,12 +1,7 @@
 <?php
-/* $evaluar = "_Num = ( 2 + 4 ) / 3 if ( _Num > 10 ) then ' Ingresaste ' "; */
-/* $evaluar = " _nag = ( 2 + 4 ) / 3 if ( _Numero > 10 ) then ' Ingresaste '"; */
-/* letra por letra */
-/* $buscado2 = explode(" ", $evaluar); */
-/*
-$buscado = explode(" ", $evaluar); */
 
-/* var_dump(Identificador($evaluar)); */
+/* $evaluar = " _nag = ( 2 + 4 ) / 3 if ( _Numero > 10 ) then ' Ingresaste '";
+var_dump(Identificador($evaluar)); */
 
 function Identificador($evaluar)
 {
