@@ -62,9 +62,9 @@ function Identificador($evaluar)
     }
     if ($key == true) {
         $data[] = array($arr, "Identificador ", $key);
-    } else {
+    } /* else {
         $data[] = array("No hay alguna variable", "No especificado ", -1);
-    }
+    } */
 
 
     return $data;
