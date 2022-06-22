@@ -1,6 +1,8 @@
 <?php
 
 /* $evaluar = " _nag = ( 2 + 4 ) / 3 if ( _Numero > 10 ) then ' Ingresaste '";
+/* $evaluar = " _nag _num 56 _nag {}";
+/* _nag _num 56 _nag {} then if => <";
 var_dump(Identificador($evaluar)); */
 
 function Identificador($evaluar)
@@ -11,13 +13,16 @@ function Identificador($evaluar)
     $operators = array_merge($minusculas, $mayusculas);
 
     /* analisame todo el array que debe coincidir por letra */
-
+    /*  $bus = array(); $bus=[]; */
     $bus = str_split($evaluar);
+
     $alm =  array();
     $alm[] = preg_replace("/[[:space:]]/", "", trim($evaluar));
 
     $datosAlmacenados =  array();
 
+    /*    for ($i = 0; $i < count($operators); $i++) {
+    for ($i = 0; $i < 12; $i++) { */
     for ($i = 0; $i < count($operators); $i++) {
 
         if ($bus[$i] == '_') {
@@ -43,16 +48,23 @@ function Identificador($evaluar)
                     }
                 }
             }
+        } elseif ($bus[$i] == null) {
+            break;
         }
         /*  */
     }
     $arr = "";
     $data =  array();
+    $key = array();
+    foreach ($datosAlmacenados as $key => $caracter) {
 
-    foreach ($datosAlmacenados as $key => $g) {
-        $arr .= $g;
+        $arr .= $caracter;
     }
-    $data[] = array($arr, "Identificador ", $key);
+    if ($key == true) {
+        $data[] = array($arr, "Identificador ", $key);
+    } else {
+        $data[] = array("No hay alguna variable", "No especificado ", -1);
+    }
 
 
     return $data;
