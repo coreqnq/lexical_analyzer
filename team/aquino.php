@@ -25,7 +25,7 @@ function classAquino($param)
     $otherVars = ['xor', 'yield', 'yield from', 'enddeclare', 'callable'];
 
     $response = '';
-    $string = 'Palabra reservada';
+    $string = 'Tokens / Palabra reservada';
     $data = [];
     $key = null;
     $stringEval = explode(" ", $param);

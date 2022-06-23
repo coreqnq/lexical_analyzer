@@ -13,7 +13,7 @@ function sybomls($inputBase)
             $key = array_search($rowWord, $stringEval);
         }
         if (!is_null($key)) {
-            $data[] = array($rowWord, 'Simbolo', $key);
+            $data[] = array($rowWord, 'Simbolo / Tokens', $key);
         }
         $key = null;
     }
