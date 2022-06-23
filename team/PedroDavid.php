@@ -3,10 +3,7 @@
 
 
 /*$evaluar = " _Num = ( 2 + 4 ) / 3 if ( _Num > 10 ) then ' Ingresaste ' ";
-
-
 var_dump(Identificador($evaluar));
-
 */
 
 /* Lógica */
@@ -26,7 +23,5 @@ function Identificador($evaluar)
         }
     }
 
-
-    /*  var_dump($data); */
     return $data;
 }
