@@ -1,10 +1,13 @@
 <?php
 
-/* $evaluar = " _nag = ( 2 + 4 ) / 3 if ( _Numero > 10 ) then ' Ingresaste '";
 /* $evaluar = " _nag _num 56 _nag {}";
 /* _nag _num 56 _nag {} then if => <";
 var_dump(Identificador($evaluar)); */
+/* $evaluar = " _nag _num 56 _nag {}"; */
 
+/* $evaluar = " _nag = ( 2 + 4 ) / 3 if ( _Numero > 10 ) then ' Ingresaste '";
+var_dump(Identificador($evaluar)); */
+/* darle un espacio al final */
 function Identificador($evaluar)
 {
     $mayusculas =  ['_', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -14,6 +17,7 @@ function Identificador($evaluar)
 
     /* analisame todo el array que debe coincidir por letra */
     /*  $bus = array(); $bus=[]; */
+    $bus = array();
     $bus = str_split($evaluar);
 
     $alm =  array();
@@ -53,6 +57,10 @@ function Identificador($evaluar)
         }
         /*  */
     }
+    /*  */
+
+
+    /*  */
     $arr = "";
     $data =  array();
     $key = array();
