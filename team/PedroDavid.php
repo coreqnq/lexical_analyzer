@@ -2,28 +2,37 @@
 <?php
 
 
-/*$evaluar = " _Num = ( 2 + 4 ) / 3 if ( _Num > 10 ) then ' Ingresaste ' ";
+/*$1evaluar = " $nag = ( 2 + 4 ) / 3 if ( $Numero > 10 ) then 'Ingresaste_un_carro_azul' 'a' ";
 var_dump(Identificador($evaluar));
 */
 
 /* Lógica 1 */
 function Identificador($evaluar)
 {
-    /* LOGICA variables */
+    $mayusculas =  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    $minusculas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    $numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+    // $firstDigit = array_merge($minusculas, $mayusculas, $numeros);
+    $firstDigit = array_merge($numeros);
+
+    /* quitar espacios innecesario */
     $evaluar = trim($evaluar);
     $data = array();
-    $space = [' '];
-    /* conjunto x conjunto */
+    $uid = '$';
+    /* separar por bloque */
     $buscado = explode(" ", $evaluar);
-
 
     foreach ($buscado as $key => $value) {
         //_nag
         if ($value != null) {
             /* Si existe un valor despues del $, se guarda */
             if (isset($value[1])) {
-                if ($value[0] == '$') {
-                    $data[] = array($value, "Identificador ", $key);
+                if ($value[0] == $uid) {
+                    /*Prohibir que el primer digito, luego del  $ sea un numeral */
+                    if (array_key_exists($value[1], $firstDigit) == false) {
+                        $data[] = array($value, "Identificador ", $key);
+                    }
                 }
             }
         }
@@ -65,7 +74,7 @@ function Identificador($evaluar)
     return $data;
 }
 
-/* X: LOGICA digitos,enteros y reales */
+/* X: LOGICA digitos, enteros y reales */
 function Real($evaluar)
 {
 
