@@ -28,7 +28,7 @@ function Identificador($evaluar)
             }
         }
     }
-    /* LOGICA digitos,enteros y reales */
+    /* LOGICA digitos,enteros y reales
     $numeros = array();
 
     $numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -41,13 +41,11 @@ function Identificador($evaluar)
 
             if (array_key_exists($value[0], $numeros) == true) {
 
-                /* Número Real */
                 $contieneUnPunto = strpos($value, $separador);
 
                 if ($contieneUnPunto == true) {
                     $data[] = array($value, "Número Real", $key);
                 } else {
-                    /* Número Entero o Dígito */
                     if (isset($value[1])) {
                         if ($value[1] != '.') {
 
@@ -60,13 +58,9 @@ function Identificador($evaluar)
                         $data[] = array($value, "Dígito", $key);
                     }
                 }
-
-
-                /*  $data[] = array($value, "Dígito", $key); */
             }
         }
-    }
-
+    } */
 
     return $data;
 }
