@@ -12,6 +12,7 @@ function Identificador($evaluar)
     /* LOGICA variables */
     $evaluar = trim($evaluar);
     $data = array();
+    $space = [' '];
     /* conjunto x conjunto */
     $buscado = explode(" ", $evaluar);
 
@@ -19,10 +20,11 @@ function Identificador($evaluar)
     foreach ($buscado as $key => $value) {
         //_nag
         if ($value != null) {
-            if ($value[0] == '$') {
-                /*  var_dump($value); */
-                /*  array_push($data, $value); */
-                $data[] = array($value, "Identificador ", $key);
+            /* Si existe un valor despues del $, se guarda */
+            if (isset($value[1])) {
+                if ($value[0] == '$') {
+                    $data[] = array($value, "Identificador ", $key);
+                }
             }
         }
     }
@@ -31,7 +33,7 @@ function Identificador($evaluar)
 
     $numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     $separador = '.';
-    $space = [' '];
+
 
     foreach ($buscado as $key => $value) {
 
