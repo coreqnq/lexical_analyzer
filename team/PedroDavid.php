@@ -13,9 +13,10 @@ function Identificador($evaluar)
     $minusculas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     $numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-    // $firstDigit = array_merge($minusculas, $mayusculas, $numeros);
+    $letras = array_merge($minusculas, $mayusculas, $numeros);
     $firstDigit = array_merge($numeros);
-
+    /*  var_dump($letras);
+    die(); */
     /* quitar espacios innecesario */
     $evaluar = trim($evaluar);
     $data = array();
@@ -30,7 +31,9 @@ function Identificador($evaluar)
             if (isset($value[1])) {
                 if ($value[0] == $uid) {
                     /*Prohibir que el primer digito, luego del  $ sea un numeral */
-                    if (array_key_exists($value[1], $firstDigit) == false) {
+
+                    if (in_array($value[1], $letras) == true) {
+                        // $data[] = array($value, "Identificador ", $key);
                         $data[] = array($value, "Identificador ", $key);
                     }
                 }
