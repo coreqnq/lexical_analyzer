@@ -2,7 +2,7 @@
 <?php
 
 
-/*$1evaluar = " $nag = ( 2 + 4 ) / 3 if ( $Numero > 10 ) then 'Ingresaste_un_carro_azul' 'a' ";
+/*$evaluar = "        $n = ( 2 + 4 ) / 3 if ( $Numero > 10 ) then 'Ingresaste_un_carro_azul' 'a' 2.10     die()      ";
 var_dump(Identificador($evaluar));
 */
 
@@ -37,7 +37,7 @@ function Identificador($evaluar)
             }
         }
     }
-    /* LOGICA digitos,enteros y reales
+    /* LOGICA digitos,enteros y reales*/
     $numeros = array();
 
     $numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -69,7 +69,39 @@ function Identificador($evaluar)
                 }
             }
         }
-    } */
+    }
+    /* cadena y caracteres */
+
+    $initial = "'";
+
+    foreach ($buscado as $key => $value) {
+        if ($value != null) {
+            if ($value[0]  == $initial) {
+                /* Cadena o Carácter */
+                if (isset($value[1]) and isset($value[2])) {
+
+                    if ($value[2] != $initial) {
+
+                        // if (array_key_exists($value[1], $cadena) == true) {
+
+                        $data[] = array($value, "Cadena", $key);
+                        // }
+                    } else {
+                        // if (array_key_exists($value[1], $cadena) == true) {
+
+                        $data[] = array($value, "Carácter", $key);
+                        // }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+
+
 
     return $data;
 }
