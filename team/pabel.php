@@ -1,77 +1,34 @@
 <?php
+function Caracter($evaluar)
+{ 
+  $mayusculas =  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  $minusculas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  //$numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  $letras = array_merge($minusculas, $mayusculas);
 
-function Real($evaluar)
-{
+  $evaluar = trim($evaluar);
 
-    $numeros = array();
+  $separador= ' ';
 
-    $numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    $separador = '.';
-    $space = [' '];
-    $caracter=[this,theme]; 
-    $cadena=[char]; 
+  $data = [];
+    $key = null;
 
+    $stringEval = explode(" ", $evaluar);
 
-    $evaluar = trim($evaluar);
+    foreach ($stringEval as $rowWord) {
+        
 
-    $data = array();
-
-    $buscado = explode(" ", $evaluar);
-
-
-    foreach ($buscado as $key => $value) {
-
-        if ($value != null) {
-
-            if (array_key_exists($value[0], $numeros) == true) {
-
-                /* Número Real */
-                $contieneUnPunto = strpos($value, $separador);
-
-                if ($contieneUnPunto == true) {
-                    $data[] = array($value, "Número Real", $key);
-                } else {
-                    /* Número Entero o Dígito */
-                    if (isset($value[1])) {
-                        if ($value[1] != '.') {
-
-                            if (array_key_exists($value[1], $numeros) == true) {
-                                $data[] = array($value, "Número Entero", $key);
-                            }
-                        }
-                    } else {
-
-                        $data[] = array($value, "Dígito", $key);
-                    }
-                }
-            }
-            if (array_key_exists($value[0],
-                    $cadena ) == true) {
-
-                /* cadena */
-                $contieneUnPunto = strpos($value, $separador);
-
-                if ($contieneUnPunto == true) {
-                    $data[] = array($value, "es una cadena", $key);
-                } else {
-                    /* caracter */
-                    if (isset($value[1])) {
-                        if ($value[1] != '.') {
-
-                            if (array_key_exists($value[1],$caracter ) == true) {
-                                $data[] = array($value, "es un carcater", $key);
-                            }
-                        }
-                    } else {
-
-                        $data[] = array($value, "Dígito", $key);
-                    }
-                }
-            }
-            
+        if (in_array($rowWord, $letras, true)) {
+            $key = array_search($rowWord, $stringEval);
         }
+        if (!is_null($key)) {
+            $data[] = array($rowWord, 'Caracter', $key);
+        }
+        $key = null;
     }
 
-    return $data;
+
+
+  return $data;
 }
 ?>

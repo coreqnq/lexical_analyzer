@@ -56,7 +56,7 @@
                     $identicador = Identificador($_POST['inputtext']);
                     $operators = searchOperators($_POST['inputtext']);
                     $typeCharacter = searchOperators($_POST['inputtext']);
-
+                    $caracter = Caracter($_POST['inputtext']);
 
                     if (count($simbols)) {
                         foreach ($simbols as $item) {
@@ -94,6 +94,18 @@
 
                         /*  echo ' <td colspan="3">' . $identicador . '</td>'; */
                         foreach ($identicador as $item) {
+                            echo '<tr>';
+                            echo '<td>' . $item[0] . '</td>
+                                     <td>' . $item[1] . '</td>
+                                     <td>' . $item[2] . '</td>';
+                            echo '</tr>';
+                        }
+
+                    }
+                    if (count($caracter)) {
+
+                        /*  echo ' <td colspan="3">' . $identicador . '</td>'; */
+                        foreach ($caracter as $item) {
                             echo '<tr>';
                             echo '<td>' . $item[0] . '</td>
                                      <td>' . $item[1] . '</td>
