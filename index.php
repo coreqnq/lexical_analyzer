@@ -56,7 +56,7 @@
                     $identicador = Identificador($_POST['inputtext']);
                     $operators = searchOperators($_POST['inputtext']);
                     $typeCharacter = searchOperators($_POST['inputtext']);
-                    $caracter = Caracter($_POST['inputtext']);
+                    $cadena_caracter = Cadena_Caracter($_POST['inputtext']);
 
                     if (count($simbols)) {
                         foreach ($simbols as $item) {
@@ -102,10 +102,10 @@
                         }
 
                     }
-                    if (count($caracter)) {
+                    if (count($cadena_caracter)) {
 
                         /*  echo ' <td colspan="3">' . $identicador . '</td>'; */
-                        foreach ($caracter as $item) {
+                        foreach ($cadena_caracter as $item) {
                             echo '<tr>';
                             echo '<td>' . $item[0] . '</td>
                                      <td>' . $item[1] . '</td>
