@@ -29,10 +29,24 @@ function Cadena_Caracter($evaluar)
   $data = [];
   $large=strlen($evaluar);
   $key = null;
-  if($large==1){
+    
+  function startsWith ($string, $startString){
+        $len = strlen($startString);
+        return (substr($string, 0, $len) === $startString);
+  }
+
+  function endsWith($string, $endString){
+    $len = strlen($endString);
+    if ($len == 0) {
+        return true;
+    }
+    return (substr($string, -$len) === $endString);
+  }
+
+  if($large==3 && startsWith($evaluar,'"') && endsWith($evaluar,'"')){
     $data[] = array($evaluar, 'Caracter', $key);
   }
-  else{
+  else if($large>3 && startsWith($evaluar,'"') && endsWith($evaluar,'"')){
     $data[] = array($evaluar, 'Cadena', $key);
   }
 
