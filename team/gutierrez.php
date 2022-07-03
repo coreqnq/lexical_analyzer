@@ -1,15 +1,29 @@
 <?php
 
-//$input = '$result = a + b * c >= d';
+$comparisonOperators = array('>', '>=', '<', '<=', '==', '<>', '!=');
+$assignmentOperators = array('=');
+$arithmeticOperators = array('+', '-', '*', '/', '%', '^', '**');
+
+function getOperatorType($operator): string
+{
+    global $comparisonOperators, $assignmentOperators, $arithmeticOperators;
+    if (in_array($operator, $comparisonOperators)) {
+        return 'Operador de comparación';
+    } else if (in_array($operator, $assignmentOperators)) {
+        return 'Operador de asignación';
+    } else if (in_array($operator, $arithmeticOperators)) {
+        return 'Operador aritmético';
+    } else {
+        return 'Desconocido';
+    }
+}
 
 function searchOperators($input): array
 {
-    $comparisonOperators = array('>', '>=', '<', '<=', '==', '<>', '!=');
-    $assignmentOperators = array('=');
-    $arithmeticOperators = array('+', '-', '*', '/', '%', '^', '**');
-//    $space = array('');
+
+    global $comparisonOperators, $assignmentOperators, $arithmeticOperators;
+
     $operators = array_merge($comparisonOperators, $assignmentOperators, $arithmeticOperators);
-    // $explodedInput = str_split($input);
 
     $tree = array();
 
@@ -23,7 +37,8 @@ function searchOperators($input): array
     $result = array();
 
     foreach ($tree as $key => $value) {
-        $result[] = array($value , 'Operador', $key);
+        $operatorType = getOperatorType($value);
+        $result[] = array($value , $operatorType, $key);
     }
 
     return $result;
