@@ -13,7 +13,7 @@ function Identificador($evaluar)
     $minusculas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     $numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-    $letras = array_merge($minusculas, $mayusculas, $numeros);
+    $letras = array_merge($minusculas, $mayusculas);
     $firstDigit = array_merge($numeros);
     /*  var_dump($letras);
     die(); */
@@ -87,12 +87,12 @@ function Identificador($evaluar)
 
                         // if (array_key_exists($value[1], $cadena) == true) {
 
-                        $data[] = array($value, "Cadena", $key);
+                        //$data[] = array($value, "Cadena", $key);
                         // }
                     } else {
                         // if (array_key_exists($value[1], $cadena) == true) {
 
-                        $data[] = array($value, "Carácter", $key);
+                        //$data[] = array($value, "Carácter", $key);
                         // }
                     }
                 }
