@@ -30,93 +30,98 @@
         <div class="col-sm-12 col-md-8">
             <table class="table table-hover">
                 <thead>
-                <tr>
-                    <th scope="col">Token</th>
-                    <th scope="col">Atributo</th>
-                    <th scope="col">Posicion</th>
-                </tr>
+                    <tr>
+                        <th scope="col">Token</th>
+                        <th scope="col">Atributo</th>
+                        <th scope="col">Posicion</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <?php
+                    <?php
 
-                require('team/garcia.php');
-                require('team/aquino.php');
-                require('team/PedroDavid.php');
-                require('team/gutierrez.php');
-                require('team/pabel.php');
+                    require('team/garcia.php');
+                    require('team/aquino.php');
+                    require('team/PedroDavid.php');
+                    require('team/gutierrez.php');
+                    require('team/pabel.php');
 
-                if (isset($_POST['inputtext'])) {
+                    if (isset($_POST['inputtext'])) {
 
-                    echo  '<div class="container-fluid p-4 mb-4 bg-primary text-white text-center rounded-3">
-                            <h1> '.$_POST['inputtext'].'</h1>
+                        echo  '<div class="container-fluid p-4 mb-4 bg-primary text-white text-center rounded-3">
+                            <h1> ' . $_POST['inputtext'] . '</h1>
                             </div>';
 
-                    $simbols = sybomls($_POST['inputtext']);
-                    $class = classAquino($_POST['inputtext']);
-                    $identicador = Identificador($_POST['inputtext']);
-                    $operators = searchOperators($_POST['inputtext']);
-                    $typeCharacter = searchOperators($_POST['inputtext']);
-                    $cadena_caracter = Cadena_Caracter($_POST['inputtext']);
+                        $simbols = classgarcia($_POST['inputtext']);
+                        $class = classAquino($_POST['inputtext']);
+                        $identicador = Identificador($_POST['inputtext']);
+                        $operators = searchOperators($_POST['inputtext']);
+                        $typeCharacter = searchOperators($_POST['inputtext']);
+                        $cadena_caracter = Cadena_Caracter($_POST['inputtext']);
 
-                    if (count($simbols)) {
-                        foreach ($simbols as $item) {
-                            echo '<tr>';
-                            echo '<td>' . $item[0] . '</td>
+                        foreach ($simbols as $row) {
+                            $keyOrder = $row[2];
+                        }
+
+                        //array_multisort($keyOrder, SORT_ASC, $simbols);
+
+
+                        if (count($simbols)) {
+                            foreach ($simbols as $item) {
+                                echo '<tr>';
+                                echo '<td>' . $item[0] . '</td>
                                     <td>' . $item[1] . '</td>
                                     <td>' . $item[2] . '</td>';
-                            echo '</tr>';
+                                echo '</tr>';
+                            }
                         }
-                    }
 
-                    if (count($class)) {
-                        foreach ($class as $item) {
-                            echo '<tr>';
-                            echo '<th>' . $item[0] . '</th>
+                        if (count($class)) {
+                            foreach ($class as $item) {
+                                echo '<tr>';
+                                echo '<th>' . $item[0] . '</th>
                                       <td>' . $item[1] . '</td>
                                       <td>' . $item[2] . '</td>';
-                            echo '</tr>';
+                                echo '</tr>';
+                            }
                         }
-                    }
 
-                    if (count($operators)) {
-                        foreach ($operators as $item) {
-                            echo '<tr>';
-                            echo '<td>' . $item[0] . '</td>';
-                            echo '<td>' . $item[1] . '</td>';
-                            echo '<td>' . $item[2] . '</td>';
-                            echo '</tr>';
+                        if (count($operators)) {
+                            foreach ($operators as $item) {
+                                echo '<tr>';
+                                echo '<td>' . $item[0] . '</td>';
+                                echo '<td>' . $item[1] . '</td>';
+                                echo '<td>' . $item[2] . '</td>';
+                                echo '</tr>';
+                            }
                         }
-                    }
 
-                    /* if (strlen($identicador)>0) { */
+                        /* if (strlen($identicador)>0) { */
 
-                    if (count($identicador)) {
+                        if (count($identicador)) {
 
-                        /*  echo ' <td colspan="3">' . $identicador . '</td>'; */
-                        foreach ($identicador as $item) {
-                            echo '<tr>';
-                            echo '<td>' . $item[0] . '</td>
+                            /*  echo ' <td colspan="3">' . $identicador . '</td>'; */
+                            foreach ($identicador as $item) {
+                                echo '<tr>';
+                                echo '<td>' . $item[0] . '</td>
                                      <td>' . $item[1] . '</td>
                                      <td>' . $item[2] . '</td>';
-                            echo '</tr>';
+                                echo '</tr>';
+                            }
                         }
+                        if (count($cadena_caracter)) {
 
-                    }
-                    if (count($cadena_caracter)) {
-
-                        /*  echo ' <td colspan="3">' . $identicador . '</td>'; */
-                        foreach ($cadena_caracter as $item) {
-                            echo '<tr>';
-                            echo '<td>' . $item[0] . '</td>
+                            /*  echo ' <td colspan="3">' . $identicador . '</td>'; */
+                            foreach ($cadena_caracter as $item) {
+                                echo '<tr>';
+                                echo '<td>' . $item[0] . '</td>
                                      <td>' . $item[1] . '</td>
                                      <td>' . $item[2] . '</td>';
-                            echo '</tr>';
+                                echo '</tr>';
+                            }
                         }
-
                     }
-                }
 
-                ?>
+                    ?>
 
 
                 </tbody>

@@ -87,12 +87,12 @@ function Identificador($evaluar)
 
                         // if (array_key_exists($value[1], $cadena) == true) {
 
-                        //$data[] = array($value, "Cadena", $key);
+                        $data[] = array($value, "Cadena", $key);
                         // }
                     } else {
                         // if (array_key_exists($value[1], $cadena) == true) {
 
-                        //$data[] = array($value, "Carácter", $key);
+                        $data[] = array($value, "Carácter", $key);
                         // }
                     }
                 }
