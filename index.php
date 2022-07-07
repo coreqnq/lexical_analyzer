@@ -58,60 +58,32 @@
                         $typeCharacter = searchOperators($_POST['inputtext']);
                         $cadena_caracter = Cadena_Caracter($_POST['inputtext']);
 
-                        foreach ($simbols as $row) {
-                            $keyOrder = $row[2];
-                        }
+                        $arrayTotal =  array_merge(
+                            $identicador,
+                            $simbols,
+                            $class,
+                            $operators,
+                            $typeCharacter,
+                            $cadena_caracter
+                        );
 
-                        //array_multisort($keyOrder, SORT_ASC, $simbols);
+                        $sortArray = array();
 
-
-                        if (count($simbols)) {
-                            foreach ($simbols as $item) {
-                                echo '<tr>';
-                                echo '<td>' . $item[0] . '</td>
-                                    <td>' . $item[1] . '</td>
-                                    <td>' . $item[2] . '</td>';
-                                echo '</tr>';
+                        foreach ($arrayTotal as $row) {
+                            foreach ($row as $key => $value) {
+                                if (!isset($sortArray[$key])) {
+                                    $sortArray[$key] = array();
+                                }
+                                $sortArray[$key][] = $value;
                             }
                         }
 
-                        if (count($class)) {
-                            foreach ($class as $item) {
-                                echo '<tr>';
-                                echo '<th>' . $item[0] . '</th>
-                                      <td>' . $item[1] . '</td>
-                                      <td>' . $item[2] . '</td>';
-                                echo '</tr>';
-                            }
-                        }
+                        array_multisort($sortArray[2], SORT_ASC, $arrayTotal);
 
-                        if (count($operators)) {
-                            foreach ($operators as $item) {
-                                echo '<tr>';
-                                echo '<td>' . $item[0] . '</td>';
-                                echo '<td>' . $item[1] . '</td>';
-                                echo '<td>' . $item[2] . '</td>';
-                                echo '</tr>';
-                            }
-                        }
-
-                        /* if (strlen($identicador)>0) { */
-
-                        if (count($identicador)) {
+                        if (count($arrayTotal)) {
 
                             /*  echo ' <td colspan="3">' . $identicador . '</td>'; */
-                            foreach ($identicador as $item) {
-                                echo '<tr>';
-                                echo '<td>' . $item[0] . '</td>
-                                     <td>' . $item[1] . '</td>
-                                     <td>' . $item[2] . '</td>';
-                                echo '</tr>';
-                            }
-                        }
-                        if (count($cadena_caracter)) {
-
-                            /*  echo ' <td colspan="3">' . $identicador . '</td>'; */
-                            foreach ($cadena_caracter as $item) {
+                            foreach ($arrayTotal as $item) {
                                 echo '<tr>';
                                 echo '<td>' . $item[0] . '</td>
                                      <td>' . $item[1] . '</td>
