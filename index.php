@@ -55,7 +55,7 @@
                         $class = classAquino($_POST['inputtext']);
                         $identicador = Identificador($_POST['inputtext']);
                         $operators = searchOperators($_POST['inputtext']);
-                        $typeCharacter = searchOperators($_POST['inputtext']);
+                        // $typeCharacter = searchOperators($_POST['inputtext']);
                         $cadena_caracter = Cadena_Caracter($_POST['inputtext']);
 
                         $arrayTotal =  array_merge(
@@ -63,7 +63,7 @@
                             $simbols,
                             $class,
                             $operators,
-                            $typeCharacter,
+                           // $typeCharacter,
                             $cadena_caracter
                         );
 
